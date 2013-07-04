@@ -1,0 +1,88 @@
+<h1><%= @status %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+    <tr>
+      <td><%= item.title %></td>
+      <td><%= item.description %></td>
+      <!--<td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+      <td>
+
+<% if item.status == "backlog" %>
+  <form class="move working next" action="<%= url_for(:action => 'move_to_working') %>" method="POST" title="Move to Working" >
+      <input name="id" type="hidden" value="<%= item.id %>"/>
+      <input title="submit" type="submit" value="Move to Working"/>
+  </form>
+<% end %>
+
+<% if item.status == "working" %>
+
+<form class="move backlog" action="<%= url_for(:action => 'backlog') %>" method="POST" title="Move to Backlog" >
+    <input name="id" type="hidden" value="<%= item.id %>"/>
+
+    <input title="submit" type="submit" value="Move to Backlog"/>
+</form>
+<form class="move verify next" action="<%= url_for(:action => 'move_to_verify') %>" method="POST" title="Move to QA" >
+    <input name="id" type="hidden" value="<%= item.id %>"/>
+
+    <input title="submit" type="submit" value="Move to QA"/>
+</form>
+
+<% end %>
+
+<% if item.status == "done" %>
+
+<form class="move working" action="<%= url_for(:action => 'move_to_working') %>" method="POST" title="Move to Working" >
+    <input name="id" type="hidden" value="<%= item.id %>"/>
+    <input title="submit" type="submit" value="Move to Working"/>
+</form>
+
+<% end %>
+
+<% if item.status == "verify" %>
+
+<form class="move working" action="<%= url_for(:action => 'move_to_working') %>" method="POST" title="Move to Working" >
+    <input name="id" type="hidden" value="<%= item.id %>"/>
+    <input title="submit" type="submit" value="Move to Working"/>
+</form>
+
+<form class="move done next" action="<%= url_for(:action => 'move_to_done') %>" method="POST" title="Move to Done" >
+    <input name="id" type="hidden" value="<%= item.id %>"/>
+    <input title="submit" type="submit" value="Move to Done"/>
+</form>
+
+<% end %>
+
+      </td>
+      <td><%= link_to 'Show', item %></td>
+      <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Item', new_item_path %>
+
+<br />
+
+<div id="links">
+    <h2>Navigation</h2>
+    <%= link_to 'Index', :action => "index" %><br />
+    <%= link_to 'Backlog', :action => "backlog" %><br />
+    <%= link_to 'Working', :action => "working" %><br />
+    <%= link_to 'Verify', :action => "verify" %><br />
+    <%= link_to 'Done', :action => "done" %>
+</div>
