@@ -1,42 +1,49 @@
-<h1><%= @status %></h1>
+<div itemscope>
 
 <%= link_to 'New Item', new_item_path %>
 <br />
 
 <hr />
+<div itemscope itemprop="column">
+  <h2>Backlog</h2>
+  <% @items.where(:status => 'backlog').each do |item| %>
+      <%= render :partial => "list_item", :locals => {:item => item} %>
+    <% end %>
+  </div>
+  <hr />
 
-<h2>Backlog</h2>
-<% @items.where(:status => 'backlog').each do |item| %>
-<%= render :partial => "list_item", :locals => {:item => item} %>
-<% end %>
-<hr />
+<div itemscope itemprop="column">
+    <h2>Working</h2>
+    <% @items.where(:status => 'working').each do |item| %>
+      <%= render :partial => "list_item", :locals => {:item => item} %>
+    <% end %>
+  </div>
+  <hr />
 
-<h2>Working</h2>
-<% @items.where(:status => 'working').each do |item| %>
-<%= render :partial => "list_item", :locals => {:item => item} %>
-<% end %>
-<hr />
+<div itemscope itemprop="column">
+    <h2>Verify</h2>
+    <% @items.where(:status => 'verify').each do |item| %>
+      <%= render :partial => "list_item", :locals => {:item => item} %>
+    <% end %>
+  </div>
+  <hr />
+  
+  <div itemscope itemprop="column">
+    <h2>Done</h2>
+    <% @items.where(:status => 'done').each do |item| %>
+      <%= render :partial => "list_item", :locals => {:item => item} %>
+    <% end %>
+  </div>
+  <hr />
 
-<h2>Verify</h2>
-<% @items.where(:status => 'verify').each do |item| %>
-<%= render :partial => "list_item", :locals => {:item => item} %>
-<% end %>
-<hr />
+  <br />
 
-<h2>Done</h2>
-<% @items.where(:status => 'done').each do |item| %>
-<%= render :partial => "list_item", :locals => {:item => item} %>
-<% end %>
-<hr />
-
-
-<br />
-
-<div id="links">
+  <div itemscope itemprop="links" id="links">
     <h2>Navigation</h2>
-    <%= link_to 'Index', :action => "index" %><br />
+    <%= link_to 'Index', :action => "index"  %><br />
     <%= link_to 'Backlog', :action => "backlog" %><br />
     <%= link_to 'Working', :action => "working" %><br />
     <%= link_to 'Verify', :action => "verify" %><br />
     <%= link_to 'Done', :action => "done" %>
+  </div>
 </div>
