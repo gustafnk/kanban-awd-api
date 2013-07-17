@@ -18,3 +18,24 @@
 		font-weight: bold;
 	}
 }
+
+.extra {
+	width: 33%;
+
+	div {
+		width: 400px;
+
+		.item {
+			background-color: #cfc;
+			padding: 50px;
+
+			* {
+			font-size: 1.3em;
+			}
+		}
+	}
+}
+
+.main {
+	display: inline-block;
+}

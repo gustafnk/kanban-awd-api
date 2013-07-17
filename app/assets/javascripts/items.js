@@ -1,6 +1,6 @@
 $(function(){
 	console.log("loaded!");
-	$("[itemscope]").first().prepend($("<div class='extra'></div>"))
+	$(".columns").before($("<div class='extra'><h2>Working</h2></div>"))
 
 	var items = $(".working .item [rel=item]");
 	_.each(items, function(item){
