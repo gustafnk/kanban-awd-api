@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<div class="item">
 <p>
   <strong>Title:</strong>
   <%= @item.title %>
@@ -13,7 +14,8 @@
 <p>
   <strong>Status:</strong>
   <%= @item.status %>
-</p>
+  </p>
+</div>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>
