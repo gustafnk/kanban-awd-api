@@ -5,14 +5,12 @@
   <%= link_to 'New Item', new_item_path, :rel => "create" %>
 <br />
 
-<hr />
 <div itemscope itemprop="column" itemtype="http://localhost/KanbanColumn">
   <h2>Backlog</h2>
   <% @items.where(:status => 'backlog').each do |item| %>
       <%= render :partial => "list_item", :locals => {:item => item} %>
     <% end %>
   </div>
-  <hr />
 
 <div itemscope itemprop="column" itemtype="http://localhost/KanbanColumn">
     <h2>Working</h2>
@@ -20,7 +18,6 @@
       <%= render :partial => "list_item", :locals => {:item => item} %>
     <% end %>
   </div>
-  <hr />
 
 <div itemscope itemprop="column" itemtype="http://localhost/KanbanColumn">
     <h2>Verify</h2>
@@ -28,7 +25,6 @@
       <%= render :partial => "list_item", :locals => {:item => item} %>
     <% end %>
   </div>
-  <hr />
   
   <div itemscope itemprop="column" itemtype="http://localhost/KanbanColumn">
     <h2>Done</h2>
@@ -36,7 +32,6 @@
       <%= render :partial => "list_item", :locals => {:item => item} %>
     <% end %>
   </div>
-  <hr />
 
   <br />
 
