@@ -6,7 +6,7 @@
 
   <div class="columns">
 
-    <div itemscope itemprop="column" itemtype="http://localhost/KanbanColumn">
+    <div itemscope itemprop="column" itemtype="http://localhost/KanbanColumn" class="backlog">
     <h2>Backlog</h2>
     <% @items.where(:status => 'backlog').each do |item| %>
         <%= render :partial => "list_item", :locals => {:item => item} %>

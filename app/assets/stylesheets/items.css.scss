@@ -19,8 +19,17 @@
 	}
 }
 
+.columns {
+	float: right;
+}
+
 .extra {
 	width: 33%;
+	background-color: #f7f7f7;
+	border-style: dashed;
+	border-width: 2px;
+	margin: 10px;
+	padding: 10px;
 
 	div {
 		width: 400px;
@@ -34,8 +43,9 @@
 			}
 		}
 	}
-}
 
-.main {
-	display: inline-block;
+	button.pull {
+		margin-top: 25px;
+		font-size: 1.5em;
+	}
 }

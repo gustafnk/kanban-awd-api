@@ -1,6 +1,6 @@
 $(function(){
-	console.log("loaded!");
-	$(".columns").before($("<div class='extra'><h2>Working</h2></div>"))
+
+	$(".columns").after($("<div class='extra'><button class='pull'>Pull</button><h2>Working</h2></div>"));
 
 	var items = $(".working .item [rel=item]");
 	_.each(items, function(item){
@@ -11,4 +11,8 @@ $(function(){
 			.load(url + " .item");
 	});
 
+	$(".extra button.pull").click(function(){
+		var form = $("form.next", $(".backlog .item").first());
+		form.submit();
+	});
 });
