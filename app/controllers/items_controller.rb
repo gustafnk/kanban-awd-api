@@ -14,7 +14,7 @@ def backlog
     @items = Item.where(:status => status.downcase)
     @status = status
 
-    render 'index'
+    render 'category'
   end
 
   def move_to_backlog
@@ -31,7 +31,7 @@ def backlog
     @items = Item.where(:status => status.downcase)
     @status = status
 
-    render 'index'
+    render 'category'
   end
 
   def move_to_working
@@ -48,7 +48,7 @@ def backlog
     @items = Item.where(:status => status.downcase)
     @status = status
 
-    render 'index'
+    render 'category'
   end
 
   def move_to_verify
@@ -65,7 +65,7 @@ def backlog
     @items = Item.where(:status => status.downcase)
     @status = status
 
-    render 'index'
+    render 'category'
   end
 
   def move_to_done
