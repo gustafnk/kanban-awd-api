@@ -7,28 +7,28 @@
   <div class="columns">
 
     <div itemscope itemprop="column" itemtype="http://localhost/KanbanColumn" class="backlog">
-    <h2>Backlog</h2>
+    <h2><%= link_to 'Backlog', {:action => "backlog"}, "itemprop" => "link", :rel => "backlog" %></h2>
     <% @items.where(:status => 'backlog').each do |item| %>
         <%= render :partial => "list_item", :locals => {:item => item} %>
       <% end %>
     </div>
 
     <div itemscope itemprop="column" itemtype="http://localhost/KanbanColumn" class="working">
-      <h2>Working</h2>
+      <h2><%= link_to 'Working', {:action => "working"}, "itemprop" => "link", :rel => "working" %></h2>
       <% @items.where(:status => 'working').each do |item| %>
         <%= render :partial => "list_item", :locals => {:item => item} %>
       <% end %>
     </div>
 
     <div itemscope itemprop="column" itemtype="http://localhost/KanbanColumn">
-      <h2>Verify</h2>
+      <h2><%= link_to 'Verify', {:action => "verify"}, "itemprop" => "link", :rel => "verify" %></h2>
       <% @items.where(:status => 'verify').each do |item| %>
         <%= render :partial => "list_item", :locals => {:item => item} %>
       <% end %>
     </div>
 
     <div itemscope itemprop="column" itemtype="http://localhost/KanbanColumn">
-      <h2>Done</h2>
+      <h2><%= link_to 'Done', {:action => "done"}, "itemprop" => "link", :rel => "done" %></h2>
       <% @items.where(:status => 'done').each do |item| %>
         <%= render :partial => "list_item", :locals => {:item => item} %>
       <% end %>
@@ -37,7 +37,7 @@
 
   <div itemscope itemprop="links" id="links">
     <h2>Navigation</h2>
-    <%= link_to 'Index', {:action => "index"}, "itemprop" => "link", :rel => "index"  %><br />
+    <%= link_to 'Board', {:action => "index"}, "itemprop" => "link", :rel => "index"  %><br />
     <%= link_to 'Backlog', {:action => "backlog"}, "itemprop" => "link", :rel => "backlog" %><br />
     <%= link_to 'Working', {:action => "working"}, "itemprop" => "link", :rel => "working" %><br />
     <%= link_to 'Verify', {:action => "verify"}, "itemprop" => "link", :rel => "verify" %><br />
