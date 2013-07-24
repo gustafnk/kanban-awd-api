@@ -57,7 +57,7 @@ def backlog
     @item.status = "verify"
     @item.save
 
-    redirect_to :action => "verify"
+    redirect_to :action => "index"
   end
 
   def done
