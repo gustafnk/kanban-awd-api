@@ -32,6 +32,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'jquery-turbolinks'
 gem 'underscore-rails'
 
 # Use ActiveModel has_secure_password
