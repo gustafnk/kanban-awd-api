@@ -1,0 +1,3 @@
+ - Refactor actions helper to list of actions
+ - ..and write some tests for that.
+ - Proper redirects after move actions
