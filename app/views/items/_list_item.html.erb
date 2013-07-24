@@ -5,50 +5,7 @@
   <!--<div><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></div>-->
   <div>
 
-<% if item.status == "backlog" %>
-  <form class="move working next" action="<%= url_for(:action => 'move_to_working') %>" method="POST" title="Move to Working" >
-      <input name="id" type="hidden" value="<%= item.id %>"/>
-      <input title="submit" type="submit" value="Move to Working"/>
-  </form>
-<% end %>
-
-<% if item.status == "working" %>
-
-<form class="move backlog" action="<%= url_for(:action => 'backlog') %>" method="POST" title="Move to Backlog" >
-    <input name="id" type="hidden" value="<%= item.id %>"/>
-
-    <input title="submit" type="submit" value="Move to Backlog"/>
-</form>
-<form class="move verify next" action="<%= url_for(:action => 'move_to_verify') %>" method="POST" title="Move to QA" >
-    <input name="id" type="hidden" value="<%= item.id %>"/>
-
-    <input title="submit" type="submit" value="Move to QA"/>
-</form>
-
-<% end %>
-
-<% if item.status == "done" %>
-
-<form class="move working" action="<%= url_for(:action => 'move_to_working') %>" method="POST" title="Move to Working" >
-    <input name="id" type="hidden" value="<%= item.id %>"/>
-    <input title="submit" type="submit" value="Move to Working"/>
-</form>
-
-<% end %>
-
-<% if item.status == "verify" %>
-
-<form class="move working" action="<%= url_for(:action => 'move_to_working') %>" method="POST" title="Move to Working" >
-    <input name="id" type="hidden" value="<%= item.id %>"/>
-    <input title="submit" type="submit" value="Move to Working"/>
-</form>
-
-<form class="move done next" action="<%= url_for(:action => 'move_to_done') %>" method="POST" title="Move to Done" >
-    <input name="id" type="hidden" value="<%= item.id %>"/>
-    <input title="submit" type="submit" value="Move to Done"/>
-</form>
-
-<% end %>
+<%= render :partial => "actions", :locals => {:item => item} %>
 
   </div>
   <div><%= link_to 'Show', item, :rel => "item" %></div>
