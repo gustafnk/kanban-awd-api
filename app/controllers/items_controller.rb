@@ -9,7 +9,11 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
 
-def backlog
+  def navigation
+    render 'navigation'
+  end
+
+  def backlog
     status = 'Backlog'
     @items = Item.where(:status => status.downcase)
     @status = status

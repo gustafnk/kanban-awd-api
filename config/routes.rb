@@ -9,6 +9,7 @@ KanbanRoca::Application.routes.draw do
       post 'verify', :action => 'move_to_verify'
       get 'done'
       post 'done', :action => 'move_to_done'
+      get 'navigation'
     end
   end
 
