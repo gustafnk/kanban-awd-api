@@ -10,42 +10,45 @@
 }
 
 .item {
-	background-color: #ffcccc;
-	margin: 20px;
-	max-width: 200px;
+  background-color: #ffcccc;
+  margin: 20px;
+  max-width: 200px;
+  padding: 10px;
 
-	.title {
-		font-weight: bold;
-	}
+  [itemprop=title] {
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+
+  [itemprop=status] {
+    display: none;
+  }
+
+  [itemprop=description] {
+    margin: 10px 0;
+  }
+
+  .move.next input {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px;
+  }
+
+  .links {
+    margin-top: 10px;
+    * {
+      margin-right: 10px;
+      display: inline-block;
+    }
+  }
 }
 
 .columns {
-	float: right;
+  float: right;
 }
 
-.extra {
-	width: 33%;
-	background-color: #f7f7f7;
-	border-style: dashed;
-	border-width: 2px;
-	margin: 10px;
-	padding: 10px;
-
-	div {
-		width: 400px;
-
-		.item {
-			background-color: #cfc;
-			padding: 50px;
-
-			* {
-			font-size: 1.3em;
-			}
-		}
-	}
-
-	button.pull {
-		margin-top: 25px;
-		font-size: 1.5em;
-	}
+.pull input[type=submit] {
+   margin: 25px 0;
+   font-size: 1.5em;
+   font-weight: bold;
 }
