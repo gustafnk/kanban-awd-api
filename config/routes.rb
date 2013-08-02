@@ -10,6 +10,7 @@ KanbanRoca::Application.routes.draw do
       get 'done'
       post 'done', :action => 'move_to_done'
       get 'navigation'
+      post 'pull', :action => 'pull'
     end
   end
 

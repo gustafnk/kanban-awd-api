@@ -2,13 +2,22 @@
 
   <h1><%= @status %></h1>
 
-    <div itemscope itemprop="column" itemtype="http://localhost/KanbanColumn" class="@status">
-      <div>
-        <% @items.each do |item| %>
-          <%= render :partial => "list_item", :locals => {:item => item} %>
-        <% end %>
-      </div>
+  <div itemscope itemprop="column" itemtype="http://localhost/KanbanColumn" class="<%= @status %>">
+    <div>
+      <% @items.each do |item| %>
+        <%= render :partial => "list_item", :locals => {:item => item} %>
+      <% end %>
     </div>
+
+    <% if @ready_to_pull %>
+
+      <form class="pull" action="<%= url_for(:action => 'pull') %>" method="POST" title="Pull item" >
+        <%= select_tag "id", options_for_select(@ready_to_pull) %>
+        <input type="hidden" name="status" value="<%= @status.downcase %>" /> 
+      <input title="Pull" type="submit" value="Pull"></input>
+      </form>
+    <% end %>
+  </div>
 
   <div itemscope itemprop="links" id="links">
     <%= link_to 'Navigation', {:action => "navigation"}, "itemprop" => "link", :rel => "index" %>

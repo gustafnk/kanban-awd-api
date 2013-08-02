@@ -35,6 +35,11 @@ class ItemsController < ApplicationController
     @items = Item.where(:status => status.downcase)
     @status = status
 
+    # TODO Refactor when rules are in model
+    @ready_to_pull = Item.where(:status => "backlog").collect do |item|
+      [item.title, item.id]
+    end
+
     render 'category'
   end
 
@@ -69,6 +74,11 @@ class ItemsController < ApplicationController
     @items = Item.where(:status => status.downcase)
     @status = status
 
+    # TODO Refactor when rules are in model
+    @ready_to_pull = Item.where(:status => "verify").collect do |item|
+      [item.title, item.id]
+    end
+
     render 'category'
   end
 
@@ -80,6 +90,17 @@ class ItemsController < ApplicationController
 
     redirect_to :action => "index"
   end
+
+  def pull
+    puts params
+    set_item
+
+    @item.status = params[:status]
+    @item.save
+
+    redirect_to :action => params[:category]
+  end
+
 
   # GET /items/1
   # GET /items/1.json
@@ -137,13 +158,13 @@ class ItemsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_item
-      @item = Item.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def item_params
-      params.require(:item).permit(:title, :description, :status)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def item_params
+    params.require(:item).permit(:title, :description, :status)
+  end
 end
