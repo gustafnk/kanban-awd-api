@@ -3,7 +3,7 @@
   <div itemprop="status" class="status"><%= item.status %></div>
   <div itemprop="description" class="description"><%= item.description %></div>
   <!--<div><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></div>-->
-  <div>
+  <div class="actions">
     <%= render :partial => "actions", :locals => {:item => item} %>
   </div>
   <div class="links">

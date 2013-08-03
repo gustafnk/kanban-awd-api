@@ -48,7 +48,20 @@
 }
 
 .pull input[type=submit] {
-   margin: 25px 0;
-   font-size: 1.5em;
-   font-weight: bold;
+  margin: 25px 0;
+  font-size: 1.5em;
+  font-weight: bold;
 }
+
+
+.main[itemtype$=Column] {
+  padding: 20px;
+  margin-left: 100px;
+}
+
+.extra {
+  .actions {
+    display: none;
+  }
+}
+
