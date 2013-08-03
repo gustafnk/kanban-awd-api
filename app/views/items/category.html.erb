@@ -1,12 +1,30 @@
 <!-- TODO Extract to partial -->
 <script type="text/javascript">
-  $(document).on("onNavigationLoaded", function(){
-      var url = $("a[rel=board]").attr("href");
+
+  function loadBoard() {
+       var url = $("a[rel=board]").attr("href");
       var column = $(".main[itemtype$=Column]");
       if($(".extra").length === 0) {
         column.before($("<div class='extra'/>"));
       }
       $(".extra").load(url + " .columns");
+  }
+
+  $(document).on("onNavigationLoaded", loadBoard);
+
+  $(document).on("click", ".main[itemtype$=Column] .actions input[type=submit]", function(e){
+      e.preventDefault();
+
+      var form = $(e.target).parent("form");
+      $.post(form.attr("action"), form.serialize(), function(){
+        if (form.hasClass("next")) {
+          form.parents("[itemprop=item]").remove();
+          loadBoard();  
+        }
+        else {
+          location.reload();
+        }
+      });
   });
 </script>
     <div class="main" itemscope itemtype="http://localhost/KanbanColumn" class="<%= @status %>">

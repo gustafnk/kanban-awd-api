@@ -98,7 +98,7 @@ class ItemsController < ApplicationController
     @item.status = params[:status]
     @item.save
 
-    redirect_to :action => params[:category]
+    redirect_to :action => params[:status]
   end
 
 
