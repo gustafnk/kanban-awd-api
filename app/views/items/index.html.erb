@@ -6,28 +6,28 @@
 
   <div class="columns">
 
-    <div itemscope itemprop="column" itemtype="http://localhost/KanbanColumn" class="backlog">
+    <div itemscope itemprop="column" itemtype="http://localhost/KanbanCategory" class="backlog">
     <h2><%= link_to 'Backlog', {:action => "backlog"}, "itemprop" => "link", :rel => "backlog" %></h2>
     <% @items.where(:status => 'backlog').each do |item| %>
         <%= render :partial => "list_item", :locals => {:item => item} %>
       <% end %>
     </div>
 
-    <div itemscope itemprop="column" itemtype="http://localhost/KanbanColumn" class="working">
+    <div itemscope itemprop="column" itemtype="http://localhost/KanbanCategory" class="working">
       <h2><%= link_to 'Working', {:action => "working"}, "itemprop" => "link", :rel => "working" %></h2>
       <% @items.where(:status => 'working').each do |item| %>
         <%= render :partial => "list_item", :locals => {:item => item} %>
       <% end %>
     </div>
 
-    <div itemscope itemprop="column" itemtype="http://localhost/KanbanColumn">
+    <div itemscope itemprop="column" itemtype="http://localhost/KanbanCategory">
       <h2><%= link_to 'Verify', {:action => "verify"}, "itemprop" => "link", :rel => "verify" %></h2>
       <% @items.where(:status => 'verify').each do |item| %>
         <%= render :partial => "list_item", :locals => {:item => item} %>
       <% end %>
     </div>
 
-    <div itemscope itemprop="column" itemtype="http://localhost/KanbanColumn">
+    <div itemscope itemprop="column" itemtype="http://localhost/KanbanCategory">
       <h2><%= link_to 'Done', {:action => "done"}, "itemprop" => "link", :rel => "done" %></h2>
       <% @items.where(:status => 'done').each do |item| %>
         <%= render :partial => "list_item", :locals => {:item => item} %>
