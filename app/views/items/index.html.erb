@@ -1,40 +1,47 @@
-<div class="main" itemscope itemtype="http://localhost/KanbanBoard">
+<div class="main h-board"> 
 
   <h1>My kanban board</h1>
 
   <%= link_to 'New Item', new_item_path, :rel => "create" %>
 
-  <div class="columns">
-
-    <div itemscope itemprop="column" itemtype="http://localhost/KanbanCategory" class="backlog">
-    <h2><%= link_to 'Backlog', {:action => "backlog"}, "itemprop" => "link", :rel => "backlog" %></h2>
-    <% @items.where(:status => 'backlog').each do |item| %>
+  <ol class="p-columns columns">
+    <li class="h-column column">
+      <h2><%= link_to 'Backlog', {:action => "backlog"}, :rel => "backlog" %></h2>
+    <ol>
+      <% @items.where(:status => 'backlog').each do |item| %>
         <%= render :partial => "list_item", :locals => {:item => item} %>
       <% end %>
-    </div>
+    </ol>
+    </li>
 
-    <div itemscope itemprop="column" itemtype="http://localhost/KanbanCategory" class="working">
-      <h2><%= link_to 'Working', {:action => "working"}, "itemprop" => "link", :rel => "working" %></h2>
+    <li class="h-column column">
+      <h2><%= link_to 'Working', {:action => "working"}, :rel => "working" %></h2>
+    <ol>
       <% @items.where(:status => 'working').each do |item| %>
         <%= render :partial => "list_item", :locals => {:item => item} %>
       <% end %>
-    </div>
+    </ol>
+    </li>
 
-    <div itemscope itemprop="column" itemtype="http://localhost/KanbanCategory">
-      <h2><%= link_to 'Verify', {:action => "verify"}, "itemprop" => "link", :rel => "verify" %></h2>
+    <li class="h-column column">
+      <h2><%= link_to 'Verify', {:action => "verify"}, :rel => "column verify" %></h2>
+    <ol>
       <% @items.where(:status => 'verify').each do |item| %>
         <%= render :partial => "list_item", :locals => {:item => item} %>
       <% end %>
-    </div>
+    </ol>
+    </li>
 
-    <div itemscope itemprop="column" itemtype="http://localhost/KanbanCategory">
-      <h2><%= link_to 'Done', {:action => "done"}, "itemprop" => "link", :rel => "done" %></h2>
+    <li class="h-column column">
+      <h2><%= link_to 'Done', {:action => "done"}, :rel => "done" %></h2>
+    <ol>
       <% @items.where(:status => 'done').each do |item| %>
         <%= render :partial => "list_item", :locals => {:item => item} %>
       <% end %>
-    </div>
-  </div>
+    </ol>
+  </ol>
 
-<div itemscope itemprop="links" id="links">
-  <%= link_to 'Navigation', {:action => "navigation"}, "itemprop" => "link", :rel => "index" %>
+  <div id="links">
+    <%= link_to 'Navigation', {:action => "navigation"}, :rel => "index" %>
+  </div>
 </div>

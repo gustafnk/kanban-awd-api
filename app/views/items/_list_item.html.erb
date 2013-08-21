@@ -1,7 +1,7 @@
-<div itemscope itemprop="item" itemtype="http://localhost/KanbanItem" class="item">
-  <div itemprop="title" class="title"><%= item.title %></div>
-  <div itemprop="status" class="status"><%= item.status %></div>
-  <div itemprop="description" class="description"><%= item.description %></div>
+<li class="h-item item">
+  <div class="p-title title"><%= item.title %></div>
+  <div class="p-status status"><%= item.status %></div>
+  <div class="p-description description"><%= item.description %></div>
   <!--<div><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></div>-->
   <div class="actions">
     <%= render :partial => "actions", :locals => {:item => item} %>
@@ -10,4 +10,4 @@
     <div><%= link_to 'Show', item, :rel => "item" %></div>
     <div><%= link_to 'Edit', edit_item_path(item) %></div>
   </div>
-</div>
+</li>

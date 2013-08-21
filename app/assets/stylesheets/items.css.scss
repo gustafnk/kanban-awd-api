@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-[itemprop=column] {
+.column {
   display: inline-block;
   min-width: 200px;
   min-height: 200px;
@@ -15,16 +15,16 @@
   max-width: 200px;
   padding: 10px;
 
-  [itemprop=title] {
+  .p-title {
     font-size: 1.3em;
     font-weight: bold;
   }
 
-  [itemprop=status] {
+  .p-status {
     display: none;
   }
 
-  [itemprop=description] {
+  .p-description {
     margin: 10px 0;
   }
 
@@ -54,7 +54,7 @@
 }
 
 
-.main[itemtype$=Category] {
+.main.column {
   padding: 20px;
   margin-left: 100px;
 }
