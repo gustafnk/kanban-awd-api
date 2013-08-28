@@ -21,14 +21,18 @@ var adapt = function(){
 
     loadBoard();
 
-    $(document).on("click", ".main.column .actions input[type=submit]", function(e){
+    var onFormSubmit = function(e){
       e.preventDefault();
       var form = $(e.target).parent("form");
 
       $.post(form.attr("action"), form.serialize(), function(response){
         Turbolinks.visit(document.location.href)
       });
-    });
+
+    }
+
+    $(document).on("click", ".main .pull input[type=submit]", onFormSubmit);
+    $(document).on("click", ".main.column .actions input[type=submit]", onFormSubmit);
   }
   else {
     $(".extra").empty();
