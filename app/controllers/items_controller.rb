@@ -23,11 +23,10 @@ class ItemsController < ApplicationController
 
   def move_to_backlog
     set_item
-
     @item.status = "backlog"
     @item.save
 
-    redirect_to :action => "index"
+    redirect_to request.referer
   end
 
   def working
@@ -49,7 +48,7 @@ class ItemsController < ApplicationController
     @item.status = "working"
     @item.save
 
-    redirect_to :action => "index"
+    redirect_to request.referer
   end
 
   def verify
@@ -66,7 +65,7 @@ class ItemsController < ApplicationController
     @item.status = "verify"
     @item.save
 
-    redirect_to :action => "index"
+    redirect_to request.referer
   end
 
   def done
@@ -88,7 +87,7 @@ class ItemsController < ApplicationController
     @item.status = "done"
     @item.save
 
-    redirect_to :action => "index"
+    redirect_to request.referer
   end
 
   def pull
@@ -98,7 +97,7 @@ class ItemsController < ApplicationController
     @item.status = params[:status]
     @item.save
 
-    redirect_to :action => params[:status]
+    redirect_to request.referer
   end
 
 
