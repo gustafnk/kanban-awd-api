@@ -25,8 +25,8 @@ class ItemsController < ApplicationController
     set_item
     @item.status = "backlog"
     @item.save
-
-    redirect_to request.referer
+    
+    redirect_unless_ajax
   end
 
   def working
@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
     @item.status = "working"
     @item.save
 
-    redirect_to request.referer
+    redirect_unless_ajax
   end
 
   def verify
@@ -65,7 +65,7 @@ class ItemsController < ApplicationController
     @item.status = "verify"
     @item.save
 
-    redirect_to request.referer
+    redirect_unless_ajax
   end
 
   def done
@@ -87,7 +87,7 @@ class ItemsController < ApplicationController
     @item.status = "done"
     @item.save
 
-    redirect_to request.referer
+    redirect_unless_ajax
   end
 
   def pull
@@ -97,7 +97,7 @@ class ItemsController < ApplicationController
     @item.status = params[:status]
     @item.save
 
-    redirect_to request.referer
+    redirect_unless_ajax
   end
 
 
@@ -165,5 +165,13 @@ class ItemsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def item_params
     params.require(:item).permit(:title, :description, :status)
+  end
+
+  def redirect_unless_ajax
+    if request.xhr?
+      head :ok, :content_type => 'text/html'
+    else
+      redirect_to request.referer
+    end
   end
 end
