@@ -4,6 +4,7 @@ mql.addListener(function(){
   adapt();
 });
 
+// TODO: Fix multiple event binding when resizing more than one time during a reload
 var adapt = function(){
 
   if (mql.matches) {
