@@ -42,7 +42,7 @@ div {
   }
 
   a:first-child {
-    margin: 0 3em 0 1.5em;
+    margin: 0 3em 0 0; 
   }
 }
 
@@ -72,8 +72,10 @@ div {
 
   .column {
     display: inline-block;
+    padding: 0;
     min-width: 200px;
     max-width: 200px;
+    margin: 0 1em 0 0;
     min-height: 200px;
     vertical-align: top;
     background-color: #ffffff;
@@ -81,8 +83,7 @@ div {
 
   .item {
     background-color: #ffcccc;
-    margin: 20px;
-    max-width: 200px;
+    margin: 20px 0;
     padding: 10px;
 
     .p-title {
@@ -112,10 +113,28 @@ div {
     }
   }
 
-  .extra .columns {
-    float: right;
+  .categories .item {
+    width: 400px;
   }
 
+  .extra {
+padding: 2em;
+    border-style: dashed;
+    border-width: 1px;
+   border-color: #ccc; 
+
+    float: right;
+    .columns {
+    .column {
+      min-height: 50px;
+      display: block;
+      .item {
+        max-width: 150px;
+        color: #777;
+      }
+    }
+  }
+}
   .pull input[type=submit] {
     margin: 25px 0;
     font-size: 1.5em;
@@ -132,4 +151,26 @@ div {
       display: none;
     }
   }
+}
+
+
+@media (min-width: 106.25em) {
+  .extra {
+position: absolute;
+    right: 0;
+padding: 2em;
+    border-style: dashed;
+    border-width: 1px;
+   border-color: #ccc; 
+  .columns {
+        .column {
+      display: inline-block;
+      .item {
+        max-width: 150px;
+        color: #777;
+      }
+    }
+  }
+}
+
 }

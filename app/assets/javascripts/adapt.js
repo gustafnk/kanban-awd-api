@@ -10,7 +10,7 @@ var adapt = function(){
   if (mql.matches) {
     function loadBoard() {
       var url = $("a[rel=board]").attr("href");
-      var column = $(".main.column");
+      var column = $(".categories .column");
 
       // Avoid duplication, makes action idempotent
       if($(".extra").length === 0) {
@@ -29,11 +29,10 @@ var adapt = function(){
       $.post(form.attr("action"), form.serialize(), function(response){
         Turbolinks.visit(document.location.href)
       });
-
     }
 
     $(document).on("click", ".main .pull input[type=submit]", onFormSubmit);
-    $(document).on("click", ".main.column .actions input[type=submit]", onFormSubmit);
+    $(document).on("click", ".main .column .actions input[type=submit]", onFormSubmit);
   }
   else {
     $(".extra").empty();
