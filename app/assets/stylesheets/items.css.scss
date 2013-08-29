@@ -2,66 +2,108 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.column {
-  display: inline-block;
-  min-width: 200px;
-  min-height: 200px;
-  vertical-align: top;
+ol {
+  list-style: none;
+  margin-left: 0;
+  padding: 0;
 }
 
-.item {
-  background-color: #ffcccc;
-  margin: 20px;
-  max-width: 200px;
-  padding: 10px;
+* {
+  font-size: 1.2em;
+}
 
-  .p-title {
-    font-size: 1.3em;
-    font-weight: bold;
-  }
+.columns {
 
-  .p-status {
-    display: none;
-  }
+  .column {
+    padding: 0.5em 0 0 0;
+    margin: 1.2em 0;
+    width: 100%;
+    background-color: #ccccff; 
 
-  .p-description {
-    margin: 10px 0;
-  }
-
-  .move.next input {
-    font-size: 1.2em;
-    font-weight: bold;
-    padding: 10px;
-  }
-
-  .links {
-    margin-top: 10px;
-    * {
-      margin-right: 10px;
-      display: inline-block;
+    ol {
+      background-color: #ffffff;
+      padding: 0.2em 0;
+      .item {
+        background-color: #ffcccc;
+        margin: 0.7em 0;
+        padding: 1em;
+        .title {
+          font-size: 1.7em;
+          line-height: 1.7em;
+        }
+        .status {
+          display: none;
+        }
+        .actions {
+          margin: 1em 0;
+        }
+      }
     }
   }
 }
 
-.columns {
-  float: right;
-}
+@media (min-width: 64em) {
 
-.pull input[type=submit] {
-  margin: 25px 0;
-  font-size: 1.5em;
-  font-weight: bold;
-}
+  .column {
+    display: inline-block;
+    min-width: 200px;
+    min-height: 200px;
+    vertical-align: top;
+  }
+
+  .item {
+    background-color: #ffcccc;
+    margin: 20px;
+    max-width: 200px;
+    padding: 10px;
+
+    .p-title {
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+
+    .p-status {
+      display: none;
+    }
+
+    .p-description {
+      margin: 10px 0;
+    }
+
+    .move.next input {
+      font-size: 1.2em;
+      font-weight: bold;
+      padding: 10px;
+    }
+
+    .links {
+      margin-top: 10px;
+      * {
+        margin-right: 10px;
+        display: inline-block;
+      }
+    }
+  }
+
+  .columns {
+    float: right;
+  }
+
+  .pull input[type=submit] {
+    margin: 25px 0;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
 
 
-.main.column {
-  padding: 20px;
-  margin-left: 100px;
-}
+  .main.column {
+    padding: 20px;
+    margin-left: 100px;
+  }
 
-.extra {
-  .actions {
-    display: none;
+  .extra {
+    .actions {
+      display: none;
+    }
   }
 }
-

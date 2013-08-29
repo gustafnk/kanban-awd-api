@@ -7,7 +7,7 @@
     <%= render :partial => "actions", :locals => {:item => item} %>
   </div>
   <div class="links">
-    <div><%= link_to 'Show', item, :rel => "item" %></div>
-    <div><%= link_to 'Edit', edit_item_path(item) %></div>
+    <%= link_to 'Show', item, :rel => "item" %>
+    <%= link_to 'Edit', edit_item_path(item) %>
   </div>
 </li>

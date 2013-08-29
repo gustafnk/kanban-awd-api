@@ -1,5 +1,5 @@
 
-var mql = window.matchMedia("(min-width: 1024px)");
+var mql = window.matchMedia("(min-width: 64em)");
 mql.addListener(function(){
   adapt();
 });
