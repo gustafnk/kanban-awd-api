@@ -30,6 +30,22 @@ div {
   }
 }
 
+#links {
+  margin: 1.5em 0;
+
+  a {
+    display: inline-block;
+    padding: 1em;
+    border-style: solid;
+    border-width: 1px;
+    background-color: #ffcccc;
+  }
+
+  a:first-child {
+    margin: 0 3em 0 1.5em;
+  }
+}
+
 .item {
   background-color: #ffcccc;
   margin: 0.7em 0;

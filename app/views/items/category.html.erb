@@ -1,5 +1,4 @@
-<div class="main h-column column <%= @status %>">
-
+<div class="main">
   <h1>
     <%= link_to 'My Kanban board', {:action => "index"}, "itemprop" => "link", :rel => "board"  %>
   </h1>
@@ -7,23 +6,26 @@
     <%= link_to 'Navigation', {:action => "navigation"}, :rel => "index" %>
   </div>
 
-  <h1><%= @status %></h1>
 
-  <div> 
-    <ol>
-      <% @items.each do |item| %>
-        <%= render :partial => "list_item", :locals => {:item => item} %>
+  <div class="h-column column <%= @status %>">
+
+    <h1><%= @status %></h1>
+
+    <div> 
+      <ol>
+        <% @items.each do |item| %>
+          <%= render :partial => "list_item", :locals => {:item => item} %>
+        <% end %>
+      </ol>
+
+      <% if @ready_to_pull %>
+
+        <form class="pull" action="<%= url_for(:action => 'pull') %>" method="POST" title="Pull item" >
+          <%= select_tag "id", options_for_select(@ready_to_pull) %>
+          <input type="hidden" name="status" value="<%= @status.downcase %>" /> 
+          <input title="Pull" type="submit" value="Pull"></input>
+        </form>
       <% end %>
-    </ol>
-
-    <% if @ready_to_pull %>
-
-      <form class="pull" action="<%= url_for(:action => 'pull') %>" method="POST" title="Pull item" >
-        <%= select_tag "id", options_for_select(@ready_to_pull) %>
-        <input type="hidden" name="status" value="<%= @status.downcase %>" /> 
-        <input title="Pull" type="submit" value="Pull"></input>
-      </form>
-    <% end %>
+    </div>
   </div>
-
 </div>
