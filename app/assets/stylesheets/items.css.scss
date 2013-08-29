@@ -4,6 +4,7 @@
 
 .main {
   max-width: 1024px;
+  margin: 0 auto;
   // background-color: #cccccc;
 }
 
@@ -91,12 +92,11 @@ div {
       margin-top: 10px;
       * {
         margin-right: 10px;
-        display: inline-block;
       }
     }
   }
 
-  .columns {
+  .extra .columns {
     float: right;
   }
 

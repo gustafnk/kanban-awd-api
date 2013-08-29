@@ -2,6 +2,10 @@
 
   <h1>My kanban board</h1>
 
+  <div id="links">
+    <%= link_to 'Navigation', {:action => "navigation"}, :rel => "index" %>
+  </div>
+
   <%= link_to 'New Item', new_item_path, :rel => "create" %>
 
   <ol class="p-columns columns">
@@ -41,7 +45,4 @@
     </ol>
   </ol>
 
-  <div id="links">
-    <%= link_to 'Navigation', {:action => "navigation"}, :rel => "index" %>
-  </div>
 </div>
