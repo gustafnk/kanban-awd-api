@@ -3,11 +3,11 @@
       <h1><%= @status %></h1>
 
       <div> 
-        <div>
+        <ol>
           <% @items.each do |item| %>
             <%= render :partial => "list_item", :locals => {:item => item} %>
           <% end %>
-        </div>
+        </ol>
 
         <% if @ready_to_pull %>
 

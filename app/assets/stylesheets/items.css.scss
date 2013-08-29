@@ -2,53 +2,64 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.main {
+  max-width: 1024px;
+  // background-color: #cccccc;
+}
+
 ol {
   list-style: none;
   margin-left: 0;
   padding: 0;
 }
 
-* {
-  font-size: 1.2em;
+div {
+  font-size: 20px;
 }
 
-.columns {
+.column {
+  padding: 0.5em 0 0 0;
+  margin: 1.2em 0;
+  width: 100%;
+  background-color: #ccccff; 
 
-  .column {
-    padding: 0.5em 0 0 0;
-    margin: 1.2em 0;
-    width: 100%;
-    background-color: #ccccff; 
-
-    ol {
-      background-color: #ffffff;
-      padding: 0.2em 0;
-      .item {
-        background-color: #ffcccc;
-        margin: 0.7em 0;
-        padding: 1em;
-        .title {
-          font-size: 1.7em;
-          line-height: 1.7em;
-        }
-        .status {
-          display: none;
-        }
-        .actions {
-          margin: 1em 0;
-        }
-      }
-    }
+  ol {
+    background-color: #ffffff;
+    padding: 0.2em 0;
   }
 }
 
+.item {
+  background-color: #ffcccc;
+  margin: 0.7em 0;
+  padding: 1em;
+
+  .title {
+    font-size: 1.7em;
+    line-height: 1.7em;
+  }
+  .status {
+    display: none;
+  }
+  .actions {
+    margin: 1em 0;
+  }
+}
+
+
 @media (min-width: 64em) {
+
+  div {
+    font-size: 16px;
+  }
 
   .column {
     display: inline-block;
     min-width: 200px;
+    max-width: 200px;
     min-height: 200px;
     vertical-align: top;
+    background-color: #ffffff;
   }
 
   .item {
@@ -94,7 +105,6 @@ ol {
     font-size: 1.5em;
     font-weight: bold;
   }
-
 
   .main.column {
     padding: 20px;
