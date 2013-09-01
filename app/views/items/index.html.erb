@@ -12,7 +12,7 @@
 
   <ol class="p-columns columns">
     <li class="h-column column">
-    <h2><%= link_to 'Backlog', {:action => "backlog"}, :rel => "backlog" %></h2>
+    <h2 class="p-name"><%= link_to 'Backlog', {:action => "backlog"}, :rel => "backlog" %></h2>
     <ol>
       <% @items.where(:status => 'backlog').each do |item| %>
         <%= render :partial => "list_item", :locals => {:item => item} %>
@@ -21,7 +21,7 @@
     </li>
 
     <li class="h-column column">
-    <h2><%= link_to 'Working', {:action => "working"}, :rel => "working" %></h2>
+    <h2 class="p-name"><%= link_to 'Working', {:action => "working"}, :rel => "working" %></h2>
     <ol>
       <% @items.where(:status => 'working').each do |item| %>
         <%= render :partial => "list_item", :locals => {:item => item} %>
@@ -30,7 +30,7 @@
     </li>
 
     <li class="h-column column">
-    <h2><%= link_to 'Verify', {:action => "verify"}, :rel => "column verify" %></h2>
+    <h2 class="p-name"><%= link_to 'Verify', {:action => "verify"}, :rel => "column verify" %></h2>
     <ol>
       <% @items.where(:status => 'verify').each do |item| %>
         <%= render :partial => "list_item", :locals => {:item => item} %>
@@ -39,7 +39,7 @@
     </li>
 
     <li class="h-column column">
-    <h2><%= link_to 'Done', {:action => "done"}, :rel => "done" %></h2>
+    <h2 class="p-name"><%= link_to 'Done', {:action => "done"}, :rel => "done" %></h2>
     <ol>
       <% @items.where(:status => 'done').each do |item| %>
         <%= render :partial => "list_item", :locals => {:item => item} %>
