@@ -1,15 +1,16 @@
 class Item < ActiveRecord::Base
+
+  def states
+    {
+      :backlog => ['working'],
+      :working => ['backlog', 'verify'],
+      :verify => ['working', 'done'],
+      :done => ['working']
+    }
+  end
+
   def next_states
-    case self.status
-    when 'backlog'
-      ['working']
-    when 'working'
-      ['backlog', 'verify']
-    when 'verify'
-      ['working', 'done']
-    when 'done'
-      ['working']
-    end
+    states[self.status.to_sym]
   end
 
   def primary_action?(state)
