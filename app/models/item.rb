@@ -5,7 +5,7 @@ class Item < ActiveRecord::Base
   end
 
   def next_states
-    Item.workflow[self.status.to_sym]
+    Item.workflow[self.status.to_sym].map {|item| item.to_s }
   end
 
   def primary_action?(state)
@@ -16,10 +16,10 @@ class Item < ActiveRecord::Base
 
   def self.workflow
     {
-      :backlog => ['working'],
-      :working => ['backlog', 'verify'],
-      :verify => ['working', 'done'],
-      :done => ['working']
+      :backlog => [:working],
+      :working => [:backlog, :verify],
+      :verify => [:working, :done],
+      :done => [:working]
     }
   end
 
