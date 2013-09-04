@@ -90,6 +90,23 @@ class ItemsController < ApplicationController
     redirect_unless_ajax
   end
 
+  def archive
+    status = 'Archive'
+    @items = Item.where(:status => status.downcase)
+    @status = status
+
+    render 'category'
+  end
+
+  def move_to_archive
+    set_item
+
+    @item.status = "archive"
+    @item.save
+
+    redirect_unless_ajax
+  end
+
   def pull
     puts params
     set_item
