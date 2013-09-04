@@ -1,6 +1,20 @@
 class Item < ActiveRecord::Base
 
-  def states
+  def self.states
+    workflow.keys.map {|item| item.to_s }
+  end
+
+  def next_states
+    Item.workflow[self.status.to_sym]
+  end
+
+  def primary_action?(state)
+    state == next_states.reverse[0]
+  end
+
+  private
+
+  def self.workflow
     {
       :backlog => ['working'],
       :working => ['backlog', 'verify'],
@@ -9,11 +23,4 @@ class Item < ActiveRecord::Base
     }
   end
 
-  def next_states
-    states[self.status.to_sym]
-  end
-
-  def primary_action?(state)
-    state == next_states.reverse[0]
-  end
 end
