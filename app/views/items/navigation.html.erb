@@ -2,9 +2,10 @@
   <h2>Navigation</h2>
   <div>
   <%= link_to 'Board', {:action => "index"}, "itemprop" => "link", :rel => "board"  %>
-  <%= link_to 'Backlog', {:action => "backlog"}, "itemprop" => "link", :rel => "backlog" %>
-  <%= link_to 'Working', {:action => "working"}, "itemprop" => "link", :rel => "working" %>
-  <%= link_to 'Verify', {:action => "verify"}, "itemprop" => "link", :rel => "verify" %>
-  <%= link_to 'Done', {:action => "done"}, "itemprop" => "link", :rel => "verify" %>
+
+  <% Item.states.each do |state | %>
+    <%= link_to state.capitalize, {:action => state}, "itemprop" => "link", :rel => state %>
+  <% end %>
+
   </div>
 </div>
