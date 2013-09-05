@@ -1,0 +1,152 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Kanban board using Microformats 2</title>
+    <link type="text/css" rel="stylesheet" href="profile.css" />
+    <link type="text/css" rel="stylesheet" href="w3c.css" />
+  </head>
+  <body>
+    <div id="heading">
+      <h1>ALPS - Application-Level Profile Semantics</h1>
+      <h2>Example: Kanban board using Microformats 2</h2>
+      <dl>
+        <dt>Author:</dt>
+        <dd>Gustaf Nilsson Kotte (<a href="http://twitter.com/gustaf_nk">@gustaf_nk</a>)</dd>
+
+        <dt>Author of the original spec on which this spec is based:</dt>
+        <dd>Mike Amundsen (<a href="http://twitter.com/mamund">@mamund</a>)</dd>
+        <dt>Dates:</dt>
+        <dd>2013-09-05 (Created)</dd>
+        <dt>Status:</dt>
+        <dd class="draft">Draft</dd>
+      </dl>
+    </div>
+
+    <div id="menu">
+      <ul>
+        <li><a href="#compliance">Compliance</a></li>
+        <li><a href="#design">Design Characteristics</a></li>
+        <li><a href="#constraints">Additional Constraints</a></li>
+        <li><a href="#semantics">Semantic Profile</a></li>
+        <li><a href="#acknowlegements">Acknowledgements</a></li>
+      </ul>
+    </div>
+
+    <div id="compliance">
+      <h2>Compliance</h2>
+      <p>
+      An implementation is not compliant if it fails to satisfy one or more
+      of the MUST or REQUIRED level requirements. An implementation that satisfies all the MUST or REQUIRED
+      level and all the SHOULD level requirements is said
+      to be "unconditionally compliant"; one that satisfies all the MUST
+      level requirements but not all the SHOULD level requirements is said to be "conditionally compliant."        
+      </p>
+      <blockquote>
+        <p>
+        The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+        NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and
+        "OPTIONAL" in this document are to be interpreted as described in
+        <a href="#refs-2119">RFC 2119</a>.
+        </p>
+      </blockquote>
+    </div>
+    <div id="design">
+      <h2>Design Characteristics</h2>
+      <dl>
+        <dt>Base Format</dt>
+        <dd>HTML5</dd>
+        <dt>Domain Semantics</dt>
+        <dd>Specific (via ALPS)</dd>
+        <dt>State Transfer</dt>
+        <dd>Ad-Hoc (via HTML FORMs)</dd>
+      </dl>
+    </div>
+    <div id="constraints">
+      <h2>Additional Constraints</h2>
+      <ul>
+        <li>All resource representations MUST be valid HTML5 documents.</li>
+        <li>Servers MAY require clients to support <a href="#refs-2617" title="RFC2617">HTTP Authentication</a> (BASIC or DIGEST) for some requests.</li>
+        <li>Servers MAY provide additional markup or features not covered in this profile but these additions 
+        MUST NOT contradict the semantics outlined here.
+        </li>
+        <li>Servers MAY supply code-on-demand elements with thier resource representations (Javascript, CSS, XSLT, etc.) but 
+        servers SHOULD NOT assume clients will support them.
+        </li>
+        <li class="correct">
+        Servers MAY supply INPUT elements in FORMS which are not documented in this spec
+        and clients SHOULD(MUST?) return those INPUT elements when POSTing the FORM.
+        </li>
+      </ul>
+    </div>
+
+    <div id="semantics">
+      <h2>Semantic Profile</h2>
+      <p>
+      What follows is a list of HTML5 attributes and their possible values. Servers SHOULD send resource representations that contain these values
+      along with appropriate markup and data. Servers are free to decide which elements are appropriate for each resource representation. Servers
+      are also free to determine which of the elements below are to be supported.   
+      </p>
+      <p>Clients SHOULD be prepared to properly handle the all attributes and elements described here. Clients SHOULD
+      also be prepared to provide state transfers (FORMs) back to the server as indicated. 
+      </p>
+      <p>Servers MAY provide additional semantics and clients MAY support those additional semantics.
+      </p>
+      <blockquote>
+        <h4>Profile Notes</h4>
+        <p>
+        The first column contains the HTML5 <span class="att-name">attribute name</span>. 
+        The second column contains the  <span class="att-value">possible value</span> for that attribute. 
+        The third column contains the	<span class="att-meaning">semantic meaning</span> of that attribute-value pair.
+        </p>
+      </blockquote>
+      <dl class="profile">
+        <dt id="class">class</dt>
+        <dd>
+        <dl> 
+          <dt>h-board</dt>
+          <dd>Represents a collection of items, organized by an ordering of item states, also called columns.</dd>
+          <dt>p-columns</dt>
+          <dd>Applied to an OL tag. It MAY contain one or more columns.</dd>
+          <dt>h-column</dt>
+          <dd>Represents a sorted list of items.</dd>
+          <dt>p-name</dt>
+          <dd>Represents the status, i.e. working, done. TODO make better</dd>
+          <dt>h-item</dt>
+          <dd>Represents a work item, task, or similar.</dd>
+          <dt>p-title</dt>
+          <dd>Contains the title of the item.</dd>
+          <dt>p-description</dt>
+          <dd>Contains the description of the item.</dd>
+          <dt>p-status</dt>
+          <dd>Contains the status of the item.</dd>
+          <dt>p-title</dt>
+          <dd>Contains the title of the item.</dd>
+        </dl>
+        </dd>
+        <dt id="name">name</dt>
+        <dd>
+        <dl>
+          <dt>TODO</dt>
+          <dd>TODO</dd>
+        </dl>
+        </dd>
+        <dt id="rel">rel</dt>
+        <dd>
+        <dl>
+          <dt>TODO</dt>
+          <dd>TODO</dd>
+        </dl>
+        </dd>
+      </dl>
+    </div>
+    <div id="acknowlegements">
+      <h2>Acknowledgements</h2>
+      <p>
+      This spec is a total rip-off of Mike Amundsen's <a href="http://amundsen.com/hypermedia/profiles/">ALPS - Application-Level Profile Semantics</a> spec. Oh, you should <a href="http://twitter.com/mamund">follow him</a> on twitter and consider buying <a href="http://www.amazon.com/Building-Hypermedia-APIs-HTML5-Node/dp/1449306578">his book</a> :)
+      </p>
+    </div>
+  </body>
+</html>
+

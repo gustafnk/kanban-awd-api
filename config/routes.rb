@@ -13,6 +13,8 @@ KanbanRoca::Application.routes.draw do
       post 'archive', :action => 'move_to_archive'
       get 'navigation'
       post 'pull', :action => 'pull'
+
+      get 'profile' => redirect('/profile.html')
     end
   end
 
