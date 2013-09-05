@@ -63,6 +63,12 @@ div {
   }
 }
 
+.move.next input {
+      font-size: 1.2em;
+      font-weight: bold;
+      padding: 10px;
+    }
+
 
 @media (min-width: 64em) {
 
@@ -99,12 +105,7 @@ div {
       margin: 10px 0;
     }
 
-    .move.next input {
-      font-size: 1.2em;
-      font-weight: bold;
-      padding: 10px;
-    }
-
+    
     .links {
       margin-top: 10px;
       * {
