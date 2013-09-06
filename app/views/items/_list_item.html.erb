@@ -1,7 +1,7 @@
-<li class="h-item item">
-  <div class="p-title title"><%= item.title %></div>
-  <div class="p-status status"><%= item.status %></div>
-  <div class="p-description description"><%= item.description %></div>
+<li class="h-item">
+  <div class="p-name"><%= item.title %></div>
+  <div class="p-status"><%= item.status %></div>
+  <div class="p-description"><%= item.description %></div>
   <!--<div><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></div>-->
   <div class="p-forms">
     <%= render :partial => "actions", :locals => {:item => item} %>
