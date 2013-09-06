@@ -19,12 +19,13 @@
       </ol>
 
       <% if @ready_to_pull %>
-
-        <form class="pull" action="<%= url_for(:action => 'pull') %>" method="POST" title="Pull item" >
-          <%= select_tag "id", options_for_select(@ready_to_pull) %>
-          <input type="hidden" name="status" value="<%= @status.downcase %>" /> 
-          <input title="Pull" type="submit" value="Pull"></input>
-        </form>
+        <div class="p-forms">
+          <form data-rel="pull" action="<%= url_for(:action => 'pull') %>" method="POST" title="Pull item" >
+            <%= select_tag "id", options_for_select(@ready_to_pull) %>
+            <input type="hidden" name="status" value="<%= @status.downcase %>" /> 
+            <input title="Pull" type="submit" value="Pull"></input>
+          </form>
+        </div>
       <% end %>
     </div>
   </div>

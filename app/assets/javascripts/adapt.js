@@ -6,7 +6,7 @@ mql.addListener(function(){
 
 // TODO: Fix multiple event binding when resizing more than one time during a reload
 var adapt = function(){
-
+  console.log("Adapt!");
   if (mql.matches) {
     function loadBoard() {
       var url = $("a[rel=board]").attr("href");
@@ -27,12 +27,13 @@ var adapt = function(){
       var form = $(e.target).parent("form");
 
       $.post(form.attr("action"), form.serialize(), function(response){
-        Turbolinks.visit(document.location.href)
+        location.reload();
+        //Turbolinks.visit(document.location.href)
       });
     }
 
-    $(document).on("click", ".main .pull input[type=submit]", onFormSubmit);
-    $(document).on("click", ".main .h-column .actions input[type=submit]", onFormSubmit);
+    $(document).on("click", ".main [data-rel=pull] input[type=submit]", onFormSubmit);
+    $(document).on("click", ".main .h-column .p-forms input[type=submit]", onFormSubmit);
   }
   else {
     $(".extra").empty();
