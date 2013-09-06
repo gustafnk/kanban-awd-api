@@ -5,6 +5,7 @@ mql.addListener(function(){
 });
 
 // TODO: Fix multiple event binding when resizing more than one time during a reload
+// TODO: Don't wait for navigation to load, use the h1 link instead
 var adapt = function(){
   console.log("Adapt!");
   if (mql.matches) {
