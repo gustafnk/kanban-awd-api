@@ -18,7 +18,7 @@ div {
   font-size: 20px;
 }
 
-.column {
+.h-column {
   padding: 0.5em 0 0 0;
   margin: 1.2em 0;
   width: 100%;
@@ -46,21 +46,30 @@ div {
   }
 }
 
-.item {
+.h-item {
   background-color: #ffcccc;
   margin: 0.7em 0;
   padding: 1em;
 
-  .title {
+  .p-title {
     font-size: 1.7em;
     line-height: 1.7em;
   }
-  .status {
+  .p-status {
+      margin-top: 10px;
     display: none;
   }
-  .actions {
+  .p-actions {
     margin: 1em 0;
   }
+
+  .p-links {
+    margin-top: 10px;
+    * {
+      margin-right: 10px;
+    }
+  }
+
 }
 
 [data-rel~=next] input {
@@ -75,7 +84,7 @@ div {
     font-size: 16px;
   }
 
-  .column {
+  .h-column {
     display: inline-block;
     padding: 0;
     min-width: 200px;
@@ -86,7 +95,7 @@ div {
     background-color: #ffffff;
   }
 
-  .item {
+  .h-item {
     background-color: #ffcccc;
     margin: 20px 0;
     padding: 10px;
@@ -103,17 +112,10 @@ div {
     .p-description {
       margin: 10px 0;
     }
-
     
-    .links {
-      margin-top: 10px;
-      * {
-        margin-right: 10px;
-      }
-    }
   }
 
-  .categories .item {
+  .main.category .h-item {
     width: 400px;
   }
 
@@ -122,12 +124,14 @@ div {
     border-style: dashed;
     border-width: 1px;
     border-color: #ccc; 
-
     float: right;
-    .columns {
-      .column {
+
+    .p-columns {
+
+      .h-column {
         min-height: 50px;
         display: block;
+
         .item {
           max-width: 150px;
           color: #777;
@@ -135,13 +139,14 @@ div {
       }
     }
   }
+
   .pull input[type=submit] {
     margin: 25px 0;
     font-size: 1.5em;
     font-weight: bold;
   }
 
-  .main.column {
+  .main.h-column {
     padding: 20px;
     margin-left: 100px;
   }

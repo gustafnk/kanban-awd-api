@@ -10,7 +10,7 @@ var adapt = function(){
   if (mql.matches) {
     function loadBoard() {
       var url = $("a[rel=board]").attr("href");
-      var column = $(".categories .column");
+      var column = $(".main.category .h-column");
 
       // Avoid duplication, makes action idempotent
       if($(".extra").length === 0) {
@@ -32,7 +32,7 @@ var adapt = function(){
     }
 
     $(document).on("click", ".main .pull input[type=submit]", onFormSubmit);
-    $(document).on("click", ".main .column .actions input[type=submit]", onFormSubmit);
+    $(document).on("click", ".main .h-column .actions input[type=submit]", onFormSubmit);
   }
   else {
     $(".extra").empty();

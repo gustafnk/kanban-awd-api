@@ -1,7 +1,7 @@
 <% item.next_states.each do |next_state| %>
   <form data-rel="move <%= next_state %><%= ' next' if item.primary_action?(next_state) %>" action="<%= url_for(:action => 'move_to_' + next_state) %>" method="POST" title="Move to <%= next_state %>" >
     <input name="id" type="hidden" value="<%= item.id %>"/>
-    <input title="submit" type="submit" value="Move to <%= next_state %>"/>
+    <input title="Move to <%= next_state %>" type="submit" value="To <%= next_state %>"/>
   </form>
 <% end %>
 
