@@ -63,12 +63,11 @@ div {
   }
 }
 
-.move.next input {
-      font-size: 1.2em;
-      font-weight: bold;
-      padding: 10px;
-    }
-
+[data-rel~=next] input {
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 10px;
+}
 
 @media (min-width: 64em) {
 

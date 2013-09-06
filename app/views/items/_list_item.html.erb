@@ -3,11 +3,11 @@
   <div class="p-status status"><%= item.status %></div>
   <div class="p-description description"><%= item.description %></div>
   <!--<div><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></div>-->
-  <div class="actions">
+  <div class="p-forms">
     <%= render :partial => "actions", :locals => {:item => item} %>
   </div>
-  <div class="links">
+  <div class="p-links">
     <%= link_to 'Show', item, :rel => "item" %>
-    <%= link_to 'Edit', edit_item_path(item) %>
+    <%= link_to 'Edit', edit_item_path(item), :rel => "edit-form" %>
   </div>
 </li>
