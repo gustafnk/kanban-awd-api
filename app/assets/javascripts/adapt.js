@@ -23,22 +23,24 @@ var adapt = function(){
 
     loadBoard();
 
-    var onFormSubmit = function(e){
-      e.preventDefault();
-      var form = $(e.target).parent("form");
-
-      $.post(form.attr("action"), form.serialize(), function(response){
-        location.reload();
-        //Turbolinks.visit(document.location.href)
-      });
-    }
-
-    $(document).on("click", ".main [data-rel=pull] input[type=submit]", onFormSubmit);
-    $(document).on("click", ".main .h-column .p-forms input[type=submit]", onFormSubmit);
-  }
+      }
   else {
     $(".extra").empty();
   }
 }
 
 $(document).on("onNavigationLoaded", adapt);
+
+var onFormSubmit = function(e){
+  e.preventDefault();
+  var form = $(e.target).parent("form");
+
+  $.post(form.attr("action"), form.serialize(), function(response){
+    //location.reload();
+    Turbolinks.visit(document.location.href)
+  });
+}
+
+$(document).on("click", ".main [data-rel=pull] input[type=submit]", onFormSubmit);
+$(document).on("click", ".main .h-column .p-forms [data-rel*=move] input[type=submit]", onFormSubmit);
+
