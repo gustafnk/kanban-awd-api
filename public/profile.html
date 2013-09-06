@@ -100,6 +100,11 @@
         The second column contains the  <span class="att-value">possible value</span> for that attribute. 
         The third column contains the	<span class="att-meaning">semantic meaning</span> of that attribute-value pair.
         </p>
+        <p>
+        Note that both the rel attribute and the data-rel is used. data-rel is used for form tags, since the regular rel is not a valid attribute for forms</p>
+        <p>
+        Also note that it's possible for rel and data-rel attributes to contain multiple values. These values are then separated with a space, just like for an ordinary class attribute.
+        </p>
       </blockquote>
       <dl class="profile">
         <dt id="class">class</dt>
@@ -110,11 +115,11 @@
           <dt>p-columns</dt>
           <dd>Applied to an OL tag. It MAY contain one or more columns.</dd>
           <dt>h-column</dt>
-          <dd>Represents a sorted list of items.</dd>
+          <dd>Represents a sorted list of items. A column MAY be contained in a board, but it's also possible that you will find an item as a root element.</dd>
           <dt>p-name</dt>
           <dd>Represents the status, i.e. working, done. TODO make better</dd>
           <dt>h-item</dt>
-          <dd>Represents a work item, task, or similar.</dd>
+          <dd>Represents a work item, task, or similar. An item MAY be contained in a column, but it's also possible that you will find an item as a root element.</dd>
           <dt>p-title</dt>
           <dd>Contains the title of the item.</dd>
           <dt>p-description</dt>
@@ -123,20 +128,36 @@
           <dd>Contains the status of the item.</dd>
           <dt>p-title</dt>
           <dd>Contains the title of the item.</dd>
+          <dt>p-links</dt>
+          <dd>Contains zero or more links. This property may appear on any level in the response.</dd>
+          <dt>p-forms</dt>
+          <dd>Contains zero or more forms. This property may appear on any level in the response.</dd>
         </dl>
         </dd>
         <dt id="name">name</dt>
         <dd>
         <dl>
-          <dt>TODO</dt>
-          <dd>TODO</dd>
+          <dt>id</dt>
+          <dd>Represents the unique identifier for the item. Usually in a hidden field.</dd>
+          <dt>item[title]</dt>
+          <dd>Represents the title of the item</dd>
+          <dt>item[description]</dt>
+          <dd>Represents the description of the item</dd>
         </dl>
         </dd>
-        <dt id="rel">rel</dt>
+        <dt id="rel">rel and data-rel</dt>
         <dd>
         <dl>
-          <dt>TODO</dt>
-          <dd>TODO</dd>
+          <dt>create-form (IANA)</dt>
+          <dd>Applied to an A tag. A reference to a page containing a create form.</dd>
+          <dt>item (IANA)</dt>
+          <dd>Applied to an A tag. A reference to a page containing details about the [collection] item.</dd>
+          <dt>move (custom)</dt>
+          <dd>Applied to a FORM tag. Indicates that this form moves an item. In a data-rel attribute.</dd>
+          <dt>backlog, working, verify, done  (custom)</dt>
+          <dd>Applied to a FORM tag. Represents the target for a 'move' action. Only valid in a data-rel attribute containing a 'move' value. The target is directly followed after the word 'move' followed by a space. Example: data/rel="move working". Note that there MAY be other values on this position than listed here, i.e. archive, groom, etc.</dd>
+          <dt>next (custom)</dt>
+          <dd>Applied to a FORM tag. Indicates that this 'move' action is the next primary action of the item, given its current state.</dd>
         </dl>
         </dd>
       </dl>
