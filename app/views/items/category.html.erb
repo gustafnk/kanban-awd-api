@@ -2,12 +2,12 @@
   <h1>
     <%= link_to 'My Kanban board', {:action => "index"}, "itemprop" => "link", :rel => "board"  %>
   </h1>
-  <div id="links">
+  <div class="p-links navigation">
     <%= link_to 'Navigation', {:action => "navigation"}, :rel => "index" %>
   </div>
 
 
-  <div class="h-column column <%= @status %>">
+  <div class="h-column">
 
     <h1><%= @status %></h1>
 

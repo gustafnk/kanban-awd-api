@@ -30,7 +30,7 @@ div {
   }
 }
 
-#links {
+.navigation {
   margin: 1.5em 0;
 
   a {
@@ -43,6 +43,10 @@ div {
 
   a:first-child {
     margin: 0 3em 0 0; 
+  }
+
+  a:hover {
+    background-color: #ffcccc;
   }
 }
 
@@ -169,10 +173,13 @@ div {
     border-style: dashed;
     border-width: 1px;
     border-color: #ccc; 
-    .columns {
-      .column {
+
+    .p-columns {
+
+      .h-column {
         display: inline-block;
-        .item {
+
+        .h-item {
           max-width: 150px;
           color: #777;
         }

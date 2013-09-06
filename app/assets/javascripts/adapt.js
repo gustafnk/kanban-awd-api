@@ -17,7 +17,7 @@ var adapt = function(){
         column.before($("<div class='extra'/>"));
       }
 
-      $(".extra").load(url + " .columns");
+      $(".extra").load(url + " .p-columns");
     }
 
     loadBoard();
