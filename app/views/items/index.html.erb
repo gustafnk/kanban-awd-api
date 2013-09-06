@@ -13,9 +13,9 @@
   <ol class="p-columns">
 
     <% Item.states.each do |state| %>
-      <li class="h-column column">
+      <li class="h-column">
       <h2 class="p-name"><%= link_to state.capitalize, {:action => state}, :rel => state %></h2>
-      <ol>
+      <ol class="p-items">
         <% @items.where(:status => state).each do |item| %>
           <%= render :partial => "list_item", :locals => {:item => item} %>
         <% end %>

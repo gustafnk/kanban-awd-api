@@ -5,7 +5,6 @@
 .main {
   max-width: 1024px;
   margin: 0 auto;
-  // background-color: #cccccc;
 }
 
 ol {
@@ -59,16 +58,19 @@ div {
     font-size: 1.7em;
     line-height: 1.7em;
   }
+
   .p-status {
       margin-top: 10px;
     display: none;
   }
+
   .p-actions {
     margin: 1em 0;
   }
 
   .p-links {
     margin-top: 10px;
+
     * {
       margin-right: 10px;
     }
@@ -156,7 +158,7 @@ div {
   }
 
   .extra {
-    .actions {
+    .p-forms {
       display: none;
     }
   }

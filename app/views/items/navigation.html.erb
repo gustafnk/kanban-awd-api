@@ -1,10 +1,10 @@
-<div itemscope itemprop="links" id="links">
+<div id="links">
   <h2>Navigation</h2>
   <div>
-  <%= link_to 'Board', {:action => "index"}, "itemprop" => "link", :rel => "board"  %>
+  <%= link_to 'Board', {:action => "index"}, :rel => "board"  %>
 
   <% Item.states.each do |state | %>
-    <%= link_to state.capitalize, {:action => state}, "itemprop" => "link", :rel => state %>
+    <%= link_to state.capitalize, {:action => state}, :rel => state %>
   <% end %>
 
   </div>
