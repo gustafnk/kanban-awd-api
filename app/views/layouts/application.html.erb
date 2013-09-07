@@ -15,11 +15,18 @@
   <script type="text/javascript">
     // Hide navigation to avoid flickering and
     //   show it again after 3 seconds if other JavaScript failed to load/execute
+    
     var navigation = document.getElementsByClassName("navigation")[0];
-    navigation.style.visibility = "hidden";
-    setTimeout(function(){
-      navigation.style.visibility = "visible";
-    }, 3000);
+    if (navigation) {
+      navigation.style.visibility = "hidden";
+    
+      setTimeout(function(){
+        var navigation = document.getElementsByClassName("navigation")[0];
+        if (navigation) {
+          navigation.style.visibility = "visible";
+        }
+      }, 3000);  
+    }
   </script>
 
 </body>
