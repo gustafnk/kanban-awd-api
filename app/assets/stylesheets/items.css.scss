@@ -14,7 +14,12 @@ ol {
 }
 
 div {
-  font-size: 20px;
+  font-size: 25px;
+}
+
+input, select {
+  width: 100%;
+  font-size: 2em;
 }
 
 .h-column {
@@ -55,8 +60,12 @@ div {
   padding: 1em;
 
   .p-name {
-    font-size: 1.7em;
-    line-height: 1.7em;
+    font-size: 2.7em;
+    line-height: 2.7em;
+  }
+
+  .p-description {
+    font-size: 2em;
   }
 
   .p-status {
@@ -64,8 +73,8 @@ div {
     display: none;
   }
 
-  .p-actions {
-    margin: 1em 0;
+  .p-forms {
+    margin: 2em 0;
   }
 
   .p-links {
@@ -79,16 +88,30 @@ div {
 }
 
 [data-rel~=next] input {
-  font-size: 1.2em;
+  font-size: 3em;
   font-weight: bold;
   padding: 10px;
 }
 
+  [data-rel=pull] input[type=submit] {
+    margin: 0.5em 0;
+  }
 @media (min-width: 64em) {
 
   div {
     font-size: 16px;
   }
+
+input, select {
+  width: auto;
+  font-size: 1em;
+}
+
+[data-rel~=next] input {
+  font-size: 2em;
+  font-weight: bold;
+  padding: 10px;
+}
 
   .h-column {
     display: inline-block;
@@ -109,6 +132,10 @@ div {
     .p-name {
       font-size: 1.3em;
       font-weight: bold;
+    }
+
+    .p-description {
+      font-size: 1.3em;
     }
 
     .p-status {
@@ -138,12 +165,13 @@ div {
         min-height: 50px;
         display: block;
 
-        .item {
+        .h-item {
           max-width: 150px;
           color: #777;
         }
       }
     }
+
   }
 
   [data-rel=pull] input[type=submit] {
