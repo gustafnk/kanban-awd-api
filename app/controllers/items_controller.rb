@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   end
 
   def navigation
+    expires_in 3.minutes, :public => true
     render 'navigation'
   end
 
