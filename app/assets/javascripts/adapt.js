@@ -4,8 +4,6 @@ mql.addListener(function(){
   adapt();
 });
 
-// TODO: Fix multiple event binding when resizing more than one time during a reload
-// TODO: Don't wait for navigation to load, use the h1 link instead
 var adapt = function(){
   console.log("Adapt!");
   if (mql.matches) {
@@ -18,12 +16,20 @@ var adapt = function(){
         column.before($("<div class='extra'/>"));
       }
 
-      $(".extra").load(url + " .p-columns");
+      if ("extra" in localStorage) {
+        var cache = localStorage.getItem("extra");
+        $(".extra").html($(cache));
+      }
+
+      $(".extra").load(url + " .p-columns", function(){
+        var cache = $(".extra")[0].innerHTML;
+        localStorage.setItem("extra", cache);
+      });
     }
 
     loadBoard();
 
-      }
+  }
   else {
     $(".extra").empty();
   }
