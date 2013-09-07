@@ -5,7 +5,6 @@ mql.addListener(function(){
 });
 
 var adapt = function(){
-  console.log("Adapt!");
   if (mql.matches) {
     function loadBoard() {
       var url = $("a[rel=board]").attr("href");

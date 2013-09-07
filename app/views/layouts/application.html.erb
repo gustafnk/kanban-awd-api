@@ -11,7 +11,16 @@
   <link rel="profile" href="/profile">
 </head>
 <body>
-<%= yield %>
+  <%= yield %>
+  <script type="text/javascript">
+    // Hide navigation to avoid flickering and
+    //   show it again after 3 seconds if other JavaScript failed to load/execute
+    var navigation = document.getElementsByClassName("navigation")[0];
+    navigation.style.visibility = "hidden";
+    setTimeout(function(){
+      navigation.style.visibility = "visible";
+    }, 3000);
+  </script>
 
 </body>
 </html>
