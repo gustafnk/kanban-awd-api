@@ -15,7 +15,7 @@
 //= require turbolinks
 //= require underscore
 //= require jquery.turbolinks
-//= require items.js.coffee
-//= require adapt.js
+//= require items
+//= require adapt
 // require_tree .
 
