@@ -29,7 +29,9 @@ var adapt = function(){
   }
 }
 
-$(document).on("onNavigationLoaded", adapt);
+$(function(){
+  adapt();
+});
 
 var onFormSubmit = function(e){
   e.preventDefault();
