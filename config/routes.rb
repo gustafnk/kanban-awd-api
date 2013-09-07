@@ -1,4 +1,7 @@
 KanbanRoca::Application.routes.draw do
+
+  root :to => "items#index"
+
   resources :items do
     collection do
       get 'backlog'
