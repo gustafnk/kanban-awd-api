@@ -48,6 +48,8 @@ var onFormSubmit = function(e){
   });
 }
 
-$(document).on("click", ".main [data-rel=pull] input[type=submit]", onFormSubmit);
-$(document).on("click", ".main .h-column .p-forms [data-rel*=move] input[type=submit]", onFormSubmit);
+$(document).on("click",      ".main [data-rel=pull] input[type=submit]", onFormSubmit);
+$(document).on("touchstart", ".main [data-rel=pull] input[type=submit]", onFormSubmit);
 
+$(document).on("click",      ".main .h-column .p-forms [data-rel*=move] input[type=submit]", onFormSubmit);
+$(document).on("touchstart", ".main .h-column .p-forms [data-rel*=move] input[type=submit]", onFormSubmit);
