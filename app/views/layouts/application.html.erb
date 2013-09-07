@@ -3,7 +3,7 @@
 <head>
   <title>KanbanRoca</title>
 
-  <% if (Rails::Server.new.options[:Port] != 3001 || !request.host.match("api")) %>
+  <% if (Rails::Server.new.options[:Port] != 3001 && !request.host.match("api")) %>
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
@@ -13,7 +13,7 @@
 <body>
   <%= %>
   <%= yield %>
-  <% if (Rails::Server.new.options[:Port] != 3001 || !request.host.match("api")) %>
+  <% if (Rails::Server.new.options[:Port] != 3001 && !request.host.match("api")) %>
   <script type="text/javascript">
 
     var applyVisibility = function(className, visibility){
