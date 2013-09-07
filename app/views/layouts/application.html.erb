@@ -13,20 +13,22 @@
 <body>
   <%= yield %>
   <script type="text/javascript">
-    // Hide navigation to avoid flickering and
-    //   show it again after 3 seconds if other JavaScript failed to load/execute
-    
-    var navigation = document.getElementsByClassName("navigation")[0];
-    if (navigation) {
-      navigation.style.visibility = "hidden";
-    
-      setTimeout(function(){
-        var navigation = document.getElementsByClassName("navigation")[0];
-        if (navigation) {
-          navigation.style.visibility = "visible";
-        }
-      }, 3000);  
+
+    var applyVisibility = function(className, visibility){
+      var element = document.getElementsByClassName(className)[0];
+      if (element) {
+        element.style.visibility = visibility;
+      }
     }
+
+    // Hide navigation to avoid flickering
+    applyVisibility("navigation", "hidden");
+
+    // Show navigation after 3 seconds in case of other scripts failed to load/execute
+    setTimeout(function(){
+      applyVisibility("navigation", "visible");
+    }, 3000);
+
   </script>
 
 </body>
