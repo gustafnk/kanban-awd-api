@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
     set_item
     @item.status = "backlog"
     @item.save
-    
+
     redirect_unless_ajax
   end
 
@@ -126,6 +126,7 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
+    authenticate
     @item = Item.new
   end
 
@@ -136,6 +137,7 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
+    authenticate
     @item = Item.new(item_params)
     @item.status = 'backlog'
 
@@ -167,6 +169,7 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
+    authenticate
     @item.destroy
     respond_to do |format|
       format.html { redirect_to items_url }
@@ -192,4 +195,11 @@ class ItemsController < ApplicationController
       redirect_to request.referer
     end
   end
+
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == ENV['KANBAN_USER'] && password == ENV['KANBAN_PASS']
+    end
+  end
+
 end
