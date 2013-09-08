@@ -1,8 +1,8 @@
-<div class="main category">
+<div class="<%= get_classes("main category") %>">
   <h1>
     <%= link_to 'My Kanban board', {:action => "index"}, "itemprop" => "link", :rel => "board"  %>
   </h1>
-  <div class="p-links navigation">
+  <div class="<%= get_classes("p-links navigation") %>">
     <%= link_to 'Navigation', {:action => "navigation"}, :rel => "index" %>
   </div>
 

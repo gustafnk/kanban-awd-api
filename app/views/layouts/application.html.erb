@@ -3,7 +3,7 @@
 <head>
   <title>Kanban AWD API</title>
 
-  <% if (Rails::Server.new.options[:Port] != 3001 && !request.host.match("api")) %>
+  <% if (web?) %>
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
@@ -11,9 +11,8 @@
   <link rel="profile" href="/profile" />
 </head>
 <body>
-  <%= %>
   <%= yield %>
-  <% if (Rails::Server.new.options[:Port] != 3001 && !request.host.match("api")) %>
+  <% if (web?) %>
   <script type="text/javascript">
 
     var applyVisibility = function(className, visibility){
