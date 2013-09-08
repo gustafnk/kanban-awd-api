@@ -5,7 +5,7 @@ This is an implementation of a Kanban board that is both
  - an HTML Hypermedia API
  - a multi-device web app, using Content First and "agressive enhancement"
 
-Two running instances of this code is found at http://kanban-awd.herokuapp.com/ and http://kanban-api.herokuapp.com. However, they share the same database.
+Two running instances of this code is found at http://kanban-awd.herokuapp.com/ and http://kanban-api.herokuapp.com. They share the same database.
 
 Some more general information regarding HTML Hypermedia APIs and Adaptive Web Design is found at https://github.com/gustafnk/combining-html-hypermedia-apis-and-adaptive-web-design
 
