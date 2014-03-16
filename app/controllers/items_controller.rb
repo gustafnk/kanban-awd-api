@@ -126,7 +126,7 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    authenticate
+    # authenticate
     @item = Item.new
   end
 
@@ -137,7 +137,7 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    authenticate
+    # authenticate
     @item = Item.new(item_params)
     @item.status = 'backlog'
 
@@ -169,7 +169,7 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
-    authenticate
+    # authenticate
     @item.destroy
     respond_to do |format|
       format.html { redirect_to items_url }
