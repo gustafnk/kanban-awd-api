@@ -1,12 +1,18 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
+  before_filter :authenticate
   skip_before_filter :verify_authenticity_token
 
   # GET /items
   # GET /items.json
   def index
     @items = Item.all
+
+    respond_to do |format|
+      format.html
+      format.json { head :no_content }
+    end
   end
 
   def navigation
@@ -19,7 +25,10 @@ class ItemsController < ApplicationController
     @items = Item.where(:status => status.downcase)
     @status = status
 
-    render 'category'
+    respond_to do |format|
+      format.html { render 'category'}
+      format.json { render :json => @items }
+    end
   end
 
   def move_to_backlog
@@ -40,7 +49,10 @@ class ItemsController < ApplicationController
       [item.title, item.id]
     end
 
-    render 'category'
+    respond_to do |format|
+      format.html { render 'category'}
+      format.json { render :json => @items }
+    end
   end
 
   def move_to_working
@@ -57,7 +69,10 @@ class ItemsController < ApplicationController
     @items = Item.where(:status => status.downcase)
     @status = status
 
-    render 'category'
+    respond_to do |format|
+      format.html { render 'category'}
+      format.json { render :json => @items }
+    end
   end
 
   def move_to_verify
@@ -79,7 +94,10 @@ class ItemsController < ApplicationController
       [item.title, item.id]
     end
 
-    render 'category'
+    respond_to do |format|
+      format.html { render 'category'}
+      format.json { render :json => @items }
+    end
   end
 
   def move_to_done
@@ -96,7 +114,10 @@ class ItemsController < ApplicationController
     @items = Item.where(:status => status.downcase)
     @status = status
 
-    render 'category'
+    respond_to do |format|
+      format.html { render 'category'}
+      format.json { render :json => @items }
+    end
   end
 
   def move_to_archive
@@ -189,16 +210,17 @@ class ItemsController < ApplicationController
   end
 
   def redirect_unless_ajax
-    if request.xhr?
+    # if request.xhr?
       head :ok, :content_type => 'text/html'
-    else
-      redirect_to request.referer
-    end
+    # else
+    # redirect_to request.referer
+    # end
   end
 
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
-      username == ENV['KANBAN_USER'] && password == ENV['KANBAN_PASS']
+      username == 'jayway' && password == 'jayway'
+      # username == ENV['KANBAN_USER'] && password == ENV['KANBAN_PASS']
     end
   end
 
