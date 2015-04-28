@@ -1,26 +1,37 @@
-<div class="<%= get_classes("main h-board") %>"> 
+<pre>
+==============
+KANBAN API
+==============
 
-  <h1>
-    <%= link_to 'My Kanban board', {:action => "index"}, :rel => "board"  %>
-  </h1>
+The API only emits JSON. You need to specify the Accept header (with the value application/json) to get JSON in the response.
+The API also supports the suffix .json on resources for development purposes.
 
-  <div class="<%= get_classes("p-links navigation") %>">
-    <%= link_to 'Navigation', {:action => "navigation"}, :rel => "index" %>
-  </div>
+Any resources that returns HTML should be considered experimental and should not be used.
 
-  <%= link_to 'New Item', new_item_path, :rel => "create-form" %>
 
-  <ol class="p-columns">
+items/backlog
+  GET: returns all the items in todo state
+  POST: form post with id moves the item with that id to the backlog state
 
-    <% Item.states.each do |state| %>
-      <li class="h-column">
-      <h2 class="p-name"><%= link_to state.capitalize, {:action => state}, :rel => state %></h2>
-      <ol class="p-items">
-        <% @items.where(:status => state).each do |item| %>
-          <%= render :partial => "list_item", :locals => {:item => item} %>
-        <% end %>
-      </ol>
-      </li>
-    <% end %>
-  </ol>
-</div>
+items/working
+  GET: returns all the items in working state
+  POST: form post with id moves the item with that id to the working state
+
+items/verify
+  GET: returns all the items in verifying state
+  POST: form post with id moves the item with that id to the verify state
+
+items/done
+  GET: returns all the items in done state
+  POST: form post with id moves the item with that id to the done state
+
+
+The rules for moving items are:
+
+ - Items in state todo are only allowed to go to working
+ - Items in state working are only allowed to go to todo or working
+ - Items in state verify are only allowed to go to working or done
+ - Items in state done are only allowed to go to todo
+
+</pre>
+

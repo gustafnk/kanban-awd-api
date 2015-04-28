@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
     @status = status
 
     respond_to do |format|
-      format.html { render 'category'}
+      format.html { head :no_content }
       format.json { render :json => @items }
     end
   end
@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { render 'category'}
+      format.html { head :no_content }
       format.json { render :json => @items }
     end
   end
@@ -70,7 +70,7 @@ class ItemsController < ApplicationController
     @status = status
 
     respond_to do |format|
-      format.html { render 'category'}
+      format.html { head :no_content }
       format.json { render :json => @items }
     end
   end
@@ -95,7 +95,7 @@ class ItemsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { render 'category'}
+      format.html { head :no_content }
       format.json { render :json => @items }
     end
   end
@@ -115,7 +115,7 @@ class ItemsController < ApplicationController
     @status = status
 
     respond_to do |format|
-      format.html { render 'category'}
+      format.html { head :no_content }
       format.json { render :json => @items }
     end
   end
