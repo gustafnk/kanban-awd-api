@@ -16,3 +16,4 @@ Summary
   - Run the app on port 3001 or specified "api" hostname to strip CSS/JavaScript includes and non-microformats classes.
   - The web app has three different main layouts - i.e. go to 'working' and zoom in and out to see them in action.
   - The 'working' and 'done' states have a pull function, making 'backlog' and 'verify' feel more like queues.
+  - This is a rails app. Run `bundle install` (you need to have Postgres installed) and then `rails server`
