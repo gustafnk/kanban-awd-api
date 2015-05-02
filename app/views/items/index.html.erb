@@ -1,37 +1,54 @@
-<pre>
-==============
-KANBAN API
-==============
+<h1>Kanban API</h1>
 
-The API only emits JSON. You need to specify the Accept header (with the value application/json) to get JSON in the response.
-The API also supports the suffix .json on resources for development purposes.
+<h2>Requests</h2>
 
+<p>
+The API only emits JSON. You need to specify the Accept header (with the value
+application/json) to get JSON in the response. The API also supports the suffix
+.json on resources for development purposes.
+</p>
+
+<p>
 Any resources that returns HTML should be considered experimental and should not be used.
+</p>
 
+<h3>Example</h3>
 
-items/backlog
+<pre>
+$ curl -u jayway:jayway -H 'Accept: application/json' http://kanban-api-lab.herokuapp.com/items/backlog
+[{"id":1,"title":"Do the lab","description":"And do it good!","status":"backlog","created_at":"2015-05-02T10:08:24.042Z","updated_at":"2015-05-02T10:08:24.042Z"}]
+</pre>
+
+<h2>Endpoints</h2>
+
+<pre>
+
+<strong>/items</strong>
+  POST: <u>form</u> post with name and description creates a new item
+
+<strong>/items/backlog</strong>
   GET: returns all the items in todo state
-  POST: form post with id moves the item with that id to the backlog state
+  POST: <u>form</u> post with id moves the item with that id to the backlog state
 
-items/working
+<strong>/items/working</strong>
   GET: returns all the items in working state
-  POST: form post with id moves the item with that id to the working state
+  POST: <u>form</u> post with id moves the item with that id to the working state
 
-items/verify
+<strong>/items/verify</strong>
   GET: returns all the items in verifying state
-  POST: form post with id moves the item with that id to the verify state
+  POST: <u>form</u> post with id moves the item with that id to the verify state
 
-items/done
+<strong>/items/done</strong>
   GET: returns all the items in done state
-  POST: form post with id moves the item with that id to the done state
-
-
-The rules for moving items are:
-
- - Items in state todo are only allowed to go to working
- - Items in state working are only allowed to go to todo or working
- - Items in state verify are only allowed to go to working or done
- - Items in state done are only allowed to go to todo
+  POST: <u>form</u> post with id moves the item with that id to the done state
 
 </pre>
 
+<h2>Rules for moving items</h2>
+
+<ul>
+  <li>Items in state todo are only allowed to go to working</li>
+  <li>Items in state working are only allowed to go to todo or working</li>
+  <li>Items in state verify are only allowed to go to working or done</li>
+  <li>Items in state done are only allowed to go to todo</li>
+</ul>
