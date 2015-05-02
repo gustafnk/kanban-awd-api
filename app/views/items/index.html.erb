@@ -12,11 +12,16 @@ application/json) to get JSON in the response. The API also supports the suffix
 Any resources that returns HTML should be considered experimental and should not be used.
 </p>
 
-<h3>Example</h3>
+<h3>Examples</h3>
+
+<pre>
+curl -u jayway:jayway -H 'Accept: application/json' -X POST -d 'item[title]=Do the lab&item[description]=And do it good!' http://kanban-api-lab.herokuapp.com/items
+{"title":"Do the lab","description":"And do it good!","status":"backlog","created_at":"2015-05-02T10:32:16.187Z","updated_at":"2015-05-02T10:32:16.187Z"}
+</pre>
 
 <pre>
 $ curl -u jayway:jayway -H 'Accept: application/json' http://kanban-api-lab.herokuapp.com/items/backlog
-[{"id":1,"title":"Do the lab","description":"And do it good!","status":"backlog","created_at":"2015-05-02T10:08:24.042Z","updated_at":"2015-05-02T10:08:24.042Z"}]
+[{"id":1,"title":"Do the lab","description":"And do it good!","status":"backlog","created_at":"2015-05-02T10:32:16.187Z","updated_at":"2015-05-02T10:32:16.187Z"}]
 </pre>
 
 <h2>Endpoints</h2>
@@ -24,7 +29,7 @@ $ curl -u jayway:jayway -H 'Accept: application/json' http://kanban-api-lab.hero
 <pre>
 
 <strong>/items</strong>
-  POST: <u>form</u> post with name and description creates a new item
+  POST: <u>form</u> post with item[title] and item[description] creates a new item
 
 <strong>/items/backlog</strong>
   GET: returns all the items in todo state
