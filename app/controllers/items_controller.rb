@@ -33,6 +33,12 @@ class ItemsController < ApplicationController
 
   def move_to_backlog
     set_item
+
+    unless @item.next_states.include? "backlog"
+      head 406
+      return
+    end
+
     @item.status = "backlog"
     @item.save
 
@@ -58,6 +64,11 @@ class ItemsController < ApplicationController
   def move_to_working
     set_item
 
+    unless @item.next_states.include? "working"
+      head 406
+      return
+    end
+
     @item.status = "working"
     @item.save
 
@@ -77,6 +88,11 @@ class ItemsController < ApplicationController
 
   def move_to_verify
     set_item
+
+    unless @item.next_states.include? "verify"
+      head 406
+      return
+    end
 
     @item.status = "verify"
     @item.save
@@ -102,6 +118,11 @@ class ItemsController < ApplicationController
 
   def move_to_done
     set_item
+
+    unless @item.next_states.include? "done"
+      head 406
+      return
+    end
 
     @item.status = "done"
     @item.save
